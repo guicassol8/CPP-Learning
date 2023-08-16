@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 class minhoca {
 	public:
 	short int tamanho;
@@ -13,10 +14,26 @@ class minhoca {
 		posicaoColuna = TAMANHOTABULEIRO/2;
 		posicaoLinha = TAMANHOTABULEIRO/2;
 	}
-	void AtualizarPosicao (short int coluna, short int linha)
+	void AumentarTamanho ()
 	{
-		posicaoColuna += coluna;
-		posicaoLinha += linha;
+		tamanho++;
+	}
+	void AvaliarInput (char input)
+	{
+		switch (input){
+		case 'w':
+			posicaoColuna--;
+			break;
+		case 's':
+			posicaoColuna++;
+			break;
+		case 'a':
+			posicaoLinha--;
+			break;
+		case 'd':
+			posicaoLinha++;
+			break;
+		}
 	}
 };
 class tabuleiro {
@@ -29,11 +46,12 @@ class tabuleiro {
 			tabuleiro1[i][j] = '.';
 		}
 	}
+	tabuleiro1 [TAMANHOTABULEIRO/2][TAMANHOTABULEIRO/2] = 'o';
 	}
 	
 	void AtualizarTabuleiro (short int linha, short int coluna)
 	{
-		tabuleiro1 [linha][coluna] = 'o';
+		tabuleiro1 [coluna][linha] = 'o';
 	}
 	
 	void ImprimirTabuleiro ()
@@ -53,8 +71,14 @@ int main()
 {
 	tabuleiro tabuleiro1;
 	minhoca minhoca1;
-	tabuleiro1.AtualizarTabuleiro(minhoca1.posicaoLinha, minhoca1.posicaoColuna);
+	char input;
 	tabuleiro1.ImprimirTabuleiro();
-
+	while (1)
+	{
+		scanf ("%c", &input);
+		minhoca1.AvaliarInput(input);
+		tabuleiro1.AtualizarTabuleiro(minhoca1.posicaoLinha, minhoca1.posicaoColuna);
+		tabuleiro1.ImprimirTabuleiro();
+	}
 	return 0;
 }
