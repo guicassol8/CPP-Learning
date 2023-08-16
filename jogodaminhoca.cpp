@@ -2,49 +2,59 @@
 #define TAMANHOTABULEIRO 9
 
 using namespace std;
-void IniciarTabuleiro (char tabuleiro[TAMANHOTABULEIRO][TAMANHOTABULEIRO]);
-void ImprimirTabuleiro (char tabuleiro[TAMANHOTABULEIRO][TAMANHOTABULEIRO]);
 
 class minhoca {
 	public:
 	short int tamanho;
-	short int posicao [TAMANHOTABULEIRO][TAMANHOTABULEIRO];
-	void MudaPosicao (short int coluna, short int linha)
+	short int posicaoColuna;
+	short int posicaoLinha;
+	minhoca (){
+		tamanho = 1;
+		posicaoColuna = TAMANHOTABULEIRO/2;
+		posicaoLinha = TAMANHOTABULEIRO/2;
+	}
+	void AtualizarPosicao (short int coluna, short int linha)
 	{
-		
+		posicaoColuna += coluna;
+		posicaoLinha += linha;
 	}
 };
-
-int main()
-{
-	char tabuleiro[TAMANHOTABULEIRO][TAMANHOTABULEIRO];
-	IniciarTabuleiro(tabuleiro);
-	tabuleiro [TAMANHOTABULEIRO/2][TAMANHOTABULEIRO/2] = 'O';
-	ImprimirTabuleiro(tabuleiro);
-	minhoca minhoca1;
-	minhoca1.tamanho = 1;
-	minhoca1.posicao[0][0] = 1;
-	
-	return 0;
-}
-
-void IniciarTabuleiro (char tabuleiro[TAMANHOTABULEIRO][TAMANHOTABULEIRO])
-{
+class tabuleiro {
+	public:
+	char tabuleiro1[TAMANHOTABULEIRO][TAMANHOTABULEIRO];
+	tabuleiro ()
+	{
 	for (int i = 0; i < TAMANHOTABULEIRO; i++){
 		for (int j = 0; j < TAMANHOTABULEIRO; j++){
-			tabuleiro[i][j] = '.';
+			tabuleiro1[i][j] = '.';
 		}
 	}
-}
-
-void ImprimirTabuleiro (char tabuleiro[TAMANHOTABULEIRO][TAMANHOTABULEIRO])
-{
+	}
+	
+	void AtualizarTabuleiro (short int linha, short int coluna)
+	{
+		tabuleiro1 [linha][coluna] = 'o';
+	}
+	
+	void ImprimirTabuleiro ()
+	{
 	for (int i = 0; i < TAMANHOTABULEIRO; i++)
 	{
 		for (int j = 0; j < TAMANHOTABULEIRO; j++)
 		{
-			cout << tabuleiro[i][j] << " ";
+			cout << tabuleiro1[i][j] << " ";
 		}
 		cout << endl;
 	}
+	}
+
+};
+int main()
+{
+	tabuleiro tabuleiro1;
+	minhoca minhoca1;
+	tabuleiro1.AtualizarTabuleiro(minhoca1.posicaoLinha, minhoca1.posicaoColuna);
+	tabuleiro1.ImprimirTabuleiro();
+
+	return 0;
 }
