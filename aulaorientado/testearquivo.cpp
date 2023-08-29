@@ -8,6 +8,11 @@
 
 using namespace std ;
 
+class Aluno {
+	private:
+	string nome;
+};
+
 int main () {
 ofstream arqsaida ; // Cria output file stream ( ofstream )
 arqsaida . open (" teste . txt ", ios :: out ); // Cria e abre arquivo
