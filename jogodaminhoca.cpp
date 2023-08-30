@@ -3,7 +3,7 @@
 #include <vector> 
 #include <random>
 #include <thread>
-#define TAMANHOTABULEIRO 9
+#define TAMANHOTABULEIRO 8
 
 using namespace std;
 
@@ -27,13 +27,13 @@ class apple{
 	void GerarApple(char tabuleiro[TAMANHOTABULEIRO][TAMANHOTABULEIRO]){
 		std::random_device rd;
     	std::mt19937 gen(rd());
-		uniform_int_distribution<> abs(0, (TAMANHOTABULEIRO/3));
+		uniform_int_distribution<> abs(0, (7));
 		random = abs(gen);
 		uniform_int_distribution<> dis(min, max);
 		randomLinha = dis(gen);
 		randomColuna = dis(gen);
 		if (random != 3){
-			return;
+			//return;
 		}
 		if (tabuleiro[randomLinha][randomColuna] == 'o'||tabuleiro[randomLinha][randomColuna] == 'I'){
 			GerarApple(tabuleiro);
@@ -75,6 +75,12 @@ class minhoca {
 			cout<<"Deu de cara na parede KKKKKKKKK"<<endl;
 			return true;
 		}
+		if (tamanhoMinhoca == (TAMANHOTABULEIRO*TAMANHOTABULEIRO)-1){
+			cout<<"Ganhou parabens"<<endl;
+			
+			return true;
+		}
+		
 		return false;
 	}
 	void AvaliarInput (char input,char tabuleiro [TAMANHOTABULEIRO][TAMANHOTABULEIRO])
@@ -145,28 +151,35 @@ class minhoca {
 			break;
 		}
 		cresceu = false;
+		
 		return;
 	}
 	void AtualizarPosicao (){
 		for (int i = 0; i < tamanhoMinhoca; i++){
 			posicaoColuna [i] = posicaoColuna [i+1];
 			posicaoLinha [i] = posicaoLinha [i+1];
+			
 		}
 	}
 	short int getPosicaoColuna (short int a = 0){
+		
 		return posicaoColuna[a];
 	}
 	short int getPosicaoLinha (short int a = 0){
+		
 		return posicaoLinha[a];
 	}
 	void crescerTamanho (){
 		tamanhoMinhoca++;
+		
 		cresceu = true;
 	}
 	bool getCresceu (){
+		
 		return cresceu;
 	}
 	int getTamanhoMinhoca (){
+		
 		return tamanhoMinhoca;
 	}
 };
@@ -186,12 +199,15 @@ class tabuleiro {
 	void AtualizarTabuleiro (short int linha, short int coluna)
 	{
 		tabuleiro1 [coluna][linha] = 'o';
+		
 	}
 	void posicaoAntiga (short int linha, short int coluna, bool cresceu){
 		tabuleiro1 [coluna][linha] = '.';
+		
 	}
 	void cauda (short int linha, short int coluna){
 		tabuleiro1 [coluna][linha] = 'I';
+		
 	}
 	
 	void ImprimirTabuleiro ()
@@ -216,11 +232,9 @@ int main()
 	char input;
 	apple1.GerarApple(tabuleiro1.tabuleiro1);
 	tabuleiro1.ImprimirTabuleiro();
-	chrono::milliseconds sleepDuration(150);
 	while (1)
 	{
 		cin >> input;
-    	this_thread::sleep_for(sleepDuration);
 		tabuleiro1.posicaoAntiga(minhoca1.getPosicaoLinha(0), minhoca1.getPosicaoColuna(0),minhoca1.getCresceu());
 		minhoca1.AvaliarInput(input,tabuleiro1.tabuleiro1);
 		cin.ignore();
