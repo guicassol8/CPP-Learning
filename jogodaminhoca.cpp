@@ -27,13 +27,13 @@ class apple{
 	void GerarApple(char tabuleiro[TAMANHOTABULEIRO][TAMANHOTABULEIRO]){
 		std::random_device rd;
     	std::mt19937 gen(rd());
-		uniform_int_distribution<> abs(0, (7));
+		uniform_int_distribution<> abs(0, 4);
 		random = abs(gen);
 		uniform_int_distribution<> dis(min, max);
 		randomLinha = dis(gen);
 		randomColuna = dis(gen);
 		if (random != 3){
-			//return;
+			return;
 		}
 		if (tabuleiro[randomLinha][randomColuna] == 'o'||tabuleiro[randomLinha][randomColuna] == 'I'){
 			GerarApple(tabuleiro);

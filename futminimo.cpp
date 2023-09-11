@@ -57,7 +57,8 @@ public:
 		cout<<"Ciclo: "<<ciclo<<endl;
 		cout<<"Registrador: "<<registrador<<endl;
 		int cicloRelativo = ciclo/40;
-		if (ciclo == registrador + (40*cicloRelativo)|| ciclo == registrador+1 + (40*cicloRelativo) || ciclo == registrador-1 + (40*cicloRelativo)){
+		int registrador1 = registrador + 1;
+		if (ciclo == registrador1 + (40*cicloRelativo)|| ciclo == registrador1 +1 + (40*cicloRelativo) || ciclo == registrador1 -1 + (40*cicloRelativo)){
 			transmissao[ciclo-1] = '#';
 		}
 		else{
