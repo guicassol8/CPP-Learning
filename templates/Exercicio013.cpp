@@ -1,4 +1,4 @@
-//Exercicio013.cpp,Guilherme Roth Cassol,Exercicio 13, 27/08/2023
+//Exercicio013.cpp,Guilherme Roth Cassol,Exercicio 13, 13/09/2023
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -42,7 +42,7 @@ class UnidadeFederativa {
     double obtemArea() {
       return area;
     }
-    void defineArea(int a) {
+    void defineArea(double a) {
       area = a;
     }
     int obtemPopulacao() {

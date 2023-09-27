@@ -1,0 +1,26 @@
+	ifstream file("lab.txt");
+
+	if (!file.is_open()){
+		cerr<<"Deu MERDA"<<endl;
+		return 1;
+	}
+
+	vector <string> linhas;
+	string linha;
+
+	while (getline(file,linha)){
+		linhas.push_back(linha);
+	}
+
+	int coluna = linhas[0].length();
+	int linha2 = linhas.size();
+
+	vector <vector <char>> matriz;
+
+	for (int i = 0; i < linha2; i++){
+		for (int j = 0; j < coluna; j++){
+			matriz[i].push_back(linhas[i][j]);
+		}
+	}
+
+	file.close();
