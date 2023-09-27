@@ -107,7 +107,7 @@ class Labirinto{
 			int coluna1;
 
 			//parte teste de implementacao
-			chrono::milliseconds duration(55);
+			//chrono::milliseconds duration(60);
 
 			// varre o input (caminho) ate achar "," ou o final
 			// atribui primeiro a linha depois coluna, sempre alternando entre as duas
@@ -121,9 +121,9 @@ class Labirinto{
 						auxiliar = false;
 						mudarTabuleiro(linha1, coluna1);
 						// parte teste de implementacao
-						this_thread::sleep_for(duration);
-						system ("clear");
-						printLabirinto();
+						// this_thread::sleep_for(duration);
+						// system ("clear");
+						// printLabirinto();
 					}
 				}
 		}
@@ -371,18 +371,19 @@ int main (){
 	speedRunnerdeLabirinto speed(matriz);
 
 	//usa o metodo BFS do objeto speedRunnerdeLabirinto para encontrar o caminho e capta-lo como uma string
-	//string caminho = speed.BFS();
+	string caminho = speed.BFS();
+
 
 	//usa o metodo DFS do objeto speedRunnerdeLabirinto para encontrar o caminho
-	bool teste = speed.DFS(0,0);
+	//bool teste = speed.DFS(0,0);
 	//capta o caminho encontrado
-	string caminho = speed.getCaminhoDFS();
+	//string caminho = speed.getCaminhoDFS();
 
 	//atualiza o qlabirinto com o caminho captado
 	lab.atualizarTabuleiro(caminho);
 
 	//printa o labirinto atualizado
-	//lab.printLabirinto();
+	lab.printLabirinto();
 	
 	return 0;
 }
