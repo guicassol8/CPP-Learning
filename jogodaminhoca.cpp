@@ -216,7 +216,13 @@ class tabuleiro {
 	{
 		for (int j = 0; j < TAMANHOTABULEIRO; j++)
 		{
-			cout << tabuleiro1[i][j] << " ";
+			if (tabuleiro1[i][j] == 'I' || tabuleiro1[i][j] == 'o'){
+				cout<<"\033[1;31m";
+			}
+			if(tabuleiro1[i][j] == '@'){
+				cout<< "\033[1;33m";
+			}
+			cout << tabuleiro1[i][j] << "\033[0m" << " ";
 		}
 		cout << endl;
 	}

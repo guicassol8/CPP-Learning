@@ -85,9 +85,16 @@ class Labirinto{
 		}
 		// printa o labirinto
 		void printLabirinto (){
+			string RED = "\033[31m";
+			string RESET = "\033[0m";
 			for (int i = 0; i < labirinto.size(); i++) {
 				for (int j = 0; j < labirinto[i].size(); j++) {
-					cout<<labirinto[i][j];
+					if (labirinto[i][j] == 'X'){
+						cout<<RED<<labirinto[i][j]<<RESET;
+					}
+					else{
+						cout<<labirinto[i][j];
+					}
 				}
 			cout<<endl;
 			}
@@ -97,8 +104,9 @@ class Labirinto{
 		}
 		// recebe o caminho completo formatado da maneira ("linha","coluna")
 		// atualizando o tabuleiro verdadeiro para o caminho desejado
-		void atualizarTabuleiro (string caminho){
+		int atualizarTabuleiro (string caminho){
 			bool auxiliar = false;
+			double tamanho = 0;
 
 			stringstream ss(caminho);
 			string aux;
@@ -126,9 +134,21 @@ class Labirinto{
 						// printLabirinto();
 					}
 				}
+				return tamanho;
 		}
 		vector <vector <char>> getTabuleiro (){
 			return labirinto;
+		}
+		int tamanhoCaminho (){
+			int caminho = 0;
+			for (int i = 0; i < labirinto.size(); i++) {
+				for (int j = 0; j < labirinto[i].size(); j++) {
+					if (labirinto[i][j] == 'X'){
+						caminho++;
+					}
+				}
+			}
+			return caminho;
 		}
 };
 
@@ -381,7 +401,6 @@ int main (){
 
 	//atualiza o qlabirinto com o caminho captado
 	lab.atualizarTabuleiro(caminho);
-
 	//printa o labirinto atualizado
 	lab.printLabirinto();
 	
