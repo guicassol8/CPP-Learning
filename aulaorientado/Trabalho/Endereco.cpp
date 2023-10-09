@@ -11,6 +11,7 @@ Construtor com configuracao de parametros default (int = -1  e strings = ""). Se
 @param e  estado
 */
 Endereco::Endereco(string l, int n, string c, string b, string cp, string cd, string e){
+
 	logradouro = l;
 	numero = n;
 	complemento = c;
@@ -90,9 +91,10 @@ string Endereco::obtemEstado() const{
 
 /*
 Metodo que retorna o objeto como string
-@return ss.str()
+@return string
 */
 string Endereco::str() const{
+
 	stringstream ss;
 	ss << logradouro << ", " << numero << " - " << complemento << " - Bairro " << bairro << " - " << cidade << " - " << estado;
 	return ss.str();
@@ -101,7 +103,7 @@ string Endereco::str() const{
 
 /*
 Metodo que define o logradouro
-@param string l
+@param l logradouro
 */
 void Endereco::defineLogradouro(string l){
 	logradouro = l;
@@ -109,7 +111,7 @@ void Endereco::defineLogradouro(string l){
 
 /*
 Metodo que define o numero
-@param int n
+@param n numero
 */
 void Endereco::defineNumero(int n){
 	numero = n;
@@ -117,7 +119,7 @@ void Endereco::defineNumero(int n){
 
 /*
 Metodo que define o complemento
-@param string c
+@param c complemento
 */
 void Endereco::defineComplemento(string c){
 	complemento = c;
@@ -125,7 +127,7 @@ void Endereco::defineComplemento(string c){
 
 /*
 Metodo que define o bairro
-@param string b
+@param b bairro
 */
 void Endereco::defineBairro(string b){
 	bairro = b;
@@ -133,7 +135,7 @@ void Endereco::defineBairro(string b){
 
 /*
 Metodo que define o cep
-@param string cp
+@param cp cep
 */
 void Endereco::defineCEP(string cp){
 	cep = cp;
@@ -141,7 +143,7 @@ void Endereco::defineCEP(string cp){
 
 /*
 Metodo que define a cidade
-@param string cd
+@param cd cidade
 */
 void Endereco::defineCidade(string cd){
 	cidade = cd;
@@ -149,7 +151,7 @@ void Endereco::defineCidade(string cd){
 
 /*
 Metodo que define o estado
-@param string e
+@param e estado
 */
 void Endereco::defineEstado(string e){
 	estado = e;
@@ -162,6 +164,7 @@ Sobrecarga do operador >> que atribui um input stream ao objeto
 @return in
 */
 istream &operator>>(istream &in,Endereco &e){
+
 	getline (in, e.logradouro);
 	string aux;
 	getline (in, aux);
@@ -181,6 +184,7 @@ Sobrecarga do operador << que imprime o objeto
 @return out
 */
 ostream &operator<<(ostream &out,const Endereco &e){
+	
 	out << e.str();
 	return out;
 }

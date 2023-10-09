@@ -24,3 +24,8 @@
 	}
 
 	file.close();
+
+Todas somas possiveis para fazer um numero
+Qual tem mais em 10000000
+
+*(*(m + i) + j) = 1;

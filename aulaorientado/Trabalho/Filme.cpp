@@ -11,6 +11,7 @@ Se DEBUG estiver definido, imprime a mensagem "Filme criado".
 @param e estilo do filme
 */
 Filme::Filme(int n, string t, int f, string e){
+	
 	numero = n;
 	titulo = t;
 	faixaEtaria = f;
@@ -63,6 +64,7 @@ Formata em forma de string titulo, numero, faixa etaria (quando for maior que 0 
 @return string
 */
 string Filme::str() const{
+
 	stringstream ss;
 	ss << titulo << " [" << numero << "] - ";
 	if (faixaEtaria > 0){
@@ -119,6 +121,7 @@ Funcao friend que sobrecarga o operador <<, que imprime o objeto em forma de str
 @return out (objeto como string)
 */
 ostream &operator<<(ostream &out, const Filme&f){
+	
     out << f.str();
     return out;
 }
@@ -128,6 +131,7 @@ Funcao friend que sobrecarga o operador >>, que le um objeto do tipo Filme
 @return in
 */
 istream &operator>>(istream &in, Filme &f){
+
 	string aux;
 	getline (in,aux);
 	f.numero = stoi(aux);
