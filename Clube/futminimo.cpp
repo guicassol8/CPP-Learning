@@ -15,7 +15,7 @@ public:
 		cout << "Objeto Criado" << endl;
 		registrador = 1;
 		ciclo = 0;
-		valorFinal = 0;
+		valorFinal = 1;
 		transmissao.resize(240);
 	}
 	void addx(int valor){
