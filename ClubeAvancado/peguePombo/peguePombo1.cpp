@@ -5,50 +5,53 @@
 
 using namespace std;
 
-struct Ponto{
-	public:
-		string nome;
-		int valorArestra;
-		Ponto (string nome, int valorArestra = 0){
-			this->nome = nome;
-			this->valorArestra = valorArestra;
-		}
-};
-
-
 class speedRunner {
 	private:
 		/*Hash map onde string eh o nome do ponto, e vector armazena os pontos adjacentes (com seus custos de arestra se necessario)*/
-		unordered_map<string, vector <Ponto>> pontos;
+		unordered_map<string,int> valor;
+		unordered_map<string,vector<string>> caminhos;
 		int quantPontos;
 	public:
 		speedRunner(){
 		}
-		void setPontos (){
-			
-		}
 };
 
 int main (){
+	speedRunner speed;
     char prevChar = '\0'; // Initialize to a non-uppercase character
-    char currentChar;
-	vector<Ponto> pontos;
+	string nome;
+	string linha;
+	vector<string> chaves;
+	vector <string> caminho;
 	int valor = 0;
 
-    while (std::cin.get(currentChar)) {
-        if (std::isupper(currentChar) && std::isupper(prevChar)) {
-            std::cout << "Found two uppercase characters together: " << prevChar << currentChar << std::endl;
-			string stringCombinada;
-			stringCombinada += prevChar;
-			stringCombinada += currentChar;
-			pontos.push_back(Ponto(stringCombinada));
-        }
-		prevChar = currentChar;
-		if (isdigit(currentChar)){
-			valor = currentChar - '0';
+	while (getline(cin, linha)){
+		bool aparicao = true;
+		prevChar = linha[0];
+		for (int i = 1; i < linha.size(); i++){
+			if (isupper(linha[i]) && prevChar == linha[i]){
+				string combinada;
+				combinada += prevChar;
+				combinada += linha[i];
+				if (aparicao){
+					nome = combinada;
+					chaves.push_back(combinada);
+					aparicao = false;
+				}
+				else{
+					caminho.push_back(combinada);
+				}
+			}
+			if (isdigit(linha[i])){
+				valor = linha[i] - '0';
+				if(isdigit(linha[i-1])){
+					valor += (linha[i-1] - '0') * 10 ;
+				}
+			}
+			prevChar = linha[i];
 		}
-    }
-	cout << "Valor: " << valor << endl;
-
+		//cout << "String: " << caminho << endl;
+		cout << "Valor: " << valor << endl;
+	}
     return 0;
 }

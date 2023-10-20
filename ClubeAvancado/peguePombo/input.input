@@ -1,1 +1,10 @@
 Válvula AA tem fluxo de 0 ulpg/min; passagens secretas para válvulas DD, II, BB
+Válvula BB tem fluxo de 13 ulpg/min; passagens secretas para válvulas CC, AA
+Válvula CC tem fluxo de 2 ulpg/min; passagens secretas para válvulas DD, BB
+Válvula DD tem fluxo de 20 ulpg/min; passagens secretas para válvulas CC, AA, EE
+Válvula EE tem fluxo de 3 ulpg/min; passagens secretas para válvulas FF, DD
+Válvula FF tem fluxo de 0 ulpg/min; passagens secretas para válvulas EE, GG
+Válvula GG tem fluxo de 0 ulpg/min; passagens secretas para válvulas FF, HH
+Válvula HH tem fluxo de 22 ulpg/min; passagem secreta pra válvula GG
+Válvula II tem fluxo de 0 ulpg/min; passagens secretas para válvulas AA, JJ
+Válvula JJ tem fluxo de 21 ulpg/min; passagem secreta pra válvula II

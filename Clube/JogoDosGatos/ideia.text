@@ -1,0 +1,12 @@
+Minha ultima ideia vai ser oque chamamos de macaques. Ao inves de ser um hashset vai ser a porra de um hash map que aponta pra um vector
+(como implementar isso eu vejo depois) e toda vez que a recursao for chamada, vai ser mandado o numero do jogo que eles estao jogando
+(talvez um vetor que possua o numero dos jogos que ele pode se basear sei la) e dessa maneira ele sempre vai comparar se esta na sua lista ou
+na dos outros jogos. A vantagem disso eh que ele sempre vai ser colocando no hash set do seu jogo e comparando com os demais, dessa maneira
+nunca mais vai ser apenas um hash set para toda a funcao. Na real a maneira que eu vou implementar eh um vector com varios hashmaps.
+Agora o unico problema eh como eu vou fazer, toda vez que acabar um jogo eu vou excluir aquela parte do vetor, ou eu deixo e faco com que ele
+ultilize outras posicoes? No caso do sempre excluir eu tenho q pensar como que eu vou fazer isso recursivamente FUNCIONAR. O outro metodo que eu vejo
+como igualmente problematico eh o de passar o numero dos pais dele, oque com certeza eh mais macaques mas acho que vai ser mais facil de implementar,
+so tenho que pensar em uma maneira macaquesa de fazer esse absurdo, mas acho que da. Essas duas implementacoes vao ser minhas ultimas tentativas antes 
+de eu simplesmente desistir por um tempo e tentar fazer outra hora, se nao der dessa vez ae eu vejo no clube la oque eles acham q eu tento fazer. Se 
+eu continuo no mesmo codigo ou se eu tento fazer um novo que nao use classes, por mais q sem classes seja mais difcil de implementar, provavelmente eh bem
+mais facil de debugar e entender oque esta acontecendo naquela merda.
